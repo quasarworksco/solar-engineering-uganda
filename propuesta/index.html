@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Proposal | Solar Engineering UG</title>
+  <meta name="description" content="Website proposal prepared by DGP Global Group for Solar Engineering UG: design, development, hosting, domain and SSL." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0a0d0b" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Website Proposal — Solar Engineering UG" />
+  <meta property="og:description" content="Prepared by DGP Global Group. New bilingual website + hosting + domain." />
+  <meta property="og:url" content="https://solarengineeringug.dgp-link.com/propuesta/" />
+  <meta property="og:image" content="https://solarengineeringug.dgp-link.com/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/space-grotesk.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter.woff2" crossorigin />
+  <style>
+    @font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("../assets/fonts/space-grotesk.woff2") format("woff2"); }
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("../assets/fonts/inter.woff2") format("woff2"); }
+
+    :root {
+      --ink: #0a0d0b; --ink-2: #141a15; --green: #2fa53e; --green-l: #47c95a; --green-d: #0d3a20;
+      --sun: #ffc61a; --paper: #f4f5ee; --white: #fff; --grey: #7d857e; --grey-d: #4e5650;
+      --line: rgba(10,13,11,.12); --line-l: rgba(255,255,255,.14);
+      --display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+      --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+      --ease: cubic-bezier(.22,1,.36,1); --ease-io: cubic-bezier(.76,0,.24,1);
+      --gutter: clamp(16px, 3.6vw, 60px); --radius: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+    body { margin: 0; font-family: var(--sans); font-size: 16px; line-height: 1.6; color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    h1, h2, h3, h4 { font-family: var(--display); }
+    em { font-style: normal; color: var(--green); }
+    ::selection { background: var(--sun); color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); }
+    section { padding: clamp(90px, 11vw, 160px) 0; }
+    .label { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 22px; font: 600 12.5px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--grey-d); }
+    .label::before { content: ""; width: 22px; height: 2px; background: var(--green); }
+    .label--light { color: rgba(255,255,255,.6); }
+    .label--light::before { background: var(--sun); }
+    .h2 { font-weight: 600; font-size: clamp(38px, 5vw, 74px); line-height: .98; letter-spacing: -.045em; margin: 0 0 24px; max-width: 18ch; }
+    .sub { color: var(--grey-d); font-size: 18px; max-width: 60ch; margin: 0; }
+
+    /* buttons */
+    .btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 12px; height: 56px; padding: 0 26px; border-radius: 999px; border: 1.5px solid transparent; background: transparent; font: 600 15px/1 var(--display); cursor: pointer; overflow: hidden; isolation: isolate; white-space: nowrap; transition: color .5s var(--ease), border-color .5s; }
+    .btn::before { content: ""; position: absolute; left: 50%; top: 100%; width: 170%; aspect-ratio: 1; border-radius: 50%; background: var(--fill); transform: translate(-50%, 0) scale(0); z-index: -1; transition: transform .7s var(--ease); }
+    .btn:hover::before, .btn:focus-visible::before { transform: translate(-50%, -50%) scale(1); }
+    .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .btn--sun { background: var(--sun); color: var(--ink); --fill: var(--white); }
+    .btn--outline { color: var(--white); border-color: rgba(255,255,255,.4); --fill: var(--white); }
+    .btn--outline:hover, .btn--outline:focus-visible { color: var(--ink); }
+    .btn--dark { background: var(--ink); color: var(--white); --fill: var(--green); }
+    .btn--wa { background: #25d366; color: #052e16; --fill: #fff; }
+    .btn--wa svg { fill: currentColor; stroke: none; width: 20px; height: 20px; }
+
+    /* top bar */
+    .bar { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 72px; display: flex; align-items: center; gap: 14px; padding: 0 var(--gutter); color: var(--white); transition: background .4s, box-shadow .4s; }
+    .bar.is-solid { background: rgba(10,13,11,.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 1px 0 rgba(255,255,255,.08); }
+    .bar__brand { display: flex; align-items: center; gap: 12px; margin-right: auto; font: 600 16px/1 var(--display); letter-spacing: -.02em; white-space: nowrap; }
+    .bar__brand img { height: 34px; width: auto; }
+    .bar__brand b { color: var(--sun); }
+    .bar__brand small { font-weight: 400; color: rgba(255,255,255,.55); margin-left: 4px; }
+    .bar__link { font: 600 14px var(--display); padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,.4); background: transparent; color: var(--white); cursor: pointer; transition: background .3s, color .3s; }
+    .bar__link:hover { background: var(--white); color: var(--ink); }
+    .lang { position: relative; display: inline-flex; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); }
+    .lang__btn { position: relative; z-index: 1; border: 0; background: none; padding: 8px 12px; min-width: 42px; font: 600 13px/1 var(--display); letter-spacing: .06em; color: rgba(255,255,255,.75); cursor: pointer; transition: color .4s; }
+    .lang__btn.is-active { color: var(--ink); }
+    .lang__pill { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc(50% - 4px); border-radius: 999px; background: var(--sun); transition: transform .6s var(--ease); }
+    .lang[data-active="sw"] .lang__pill { transform: translateX(100%); }
+    .curtain { position: fixed; inset: 0; z-index: 90; background: var(--sun); transform: scaleY(0); transform-origin: bottom; pointer-events: none; transition: transform .55s var(--ease-io); }
+    .curtain.is-on { transform: scaleY(1); }
+    .curtain.is-off { transform-origin: top; }
+
+    /* hero */
+    .hero { position: relative; min-height: 100vh; min-height: 100svh; padding: 150px 0 60px; color: var(--white); background: var(--ink); overflow: hidden; display: flex; align-items: flex-end; }
+    .hero__bg { position: absolute; inset: 0; }
+    .hero__bg img { width: 100%; height: 100%; object-fit: cover; opacity: .55; transform: scale(1.15); animation: heroIn 2.6s var(--ease) forwards; }
+    @keyframes heroIn { to { transform: scale(1); } }
+    .hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,13,11,.55), rgba(10,13,11,.25) 35%, rgba(10,13,11,.96)), linear-gradient(90deg, rgba(10,13,11,.6), transparent 70%); }
+    .hero__glow { position: absolute; width: 60vmax; aspect-ratio: 1; left: -22vmax; top: -22vmax; border-radius: 50%; background: radial-gradient(circle, rgba(255,190,40,.4), transparent 60%); mix-blend-mode: screen; animation: glow 7s ease-in-out infinite alternate; }
+    @keyframes glow { to { transform: scale(1.12) translate(4%, 3%); } }
+    .hero .container { position: relative; width: 100%; }
+    .hero h1 { margin: 0 0 26px; font-weight: 600; font-size: clamp(44px, 7.6vw, 124px); line-height: .92; letter-spacing: -.055em; max-width: 14ch; }
+    .hero h1 em { color: var(--sun); }
+    .hero__lead { max-width: 600px; font-size: 18px; color: rgba(255,255,255,.8); margin: 0 0 36px; }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 64px; }
+    .meta { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line-l); }
+    .meta div { padding: 22px 22px 0 0; }
+    .meta div + div { padding-left: 22px; border-left: 1px solid var(--line-l); }
+    .meta small { display: block; font: 500 11.5px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 8px; }
+    .meta strong { font: 500 18px/1.3 var(--display); letter-spacing: -.02em; display: block; }
+    .hero [data-in] { opacity: 0; transform: translateY(40px); animation: rise 1.2s var(--ease) forwards; animation-delay: var(--d, 0s); }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+
+    /* reveal */
+    .js .rv { opacity: 0; transform: translateY(46px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); transition-delay: var(--d, 0s); }
+    .js .rv.is-in { opacity: 1; transform: none; }
+
+    /* before / after */
+    .cmp { margin-top: 48px; }
+    .cmp__bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tab, .mode__btn { font: 600 14.5px var(--display); padding: 11px 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .3s, color .3s, border-color .3s; }
+    .tab:hover, .mode__btn:hover { border-color: var(--ink); }
+    .tab.is-active { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .mode { display: inline-flex; padding: 4px; border-radius: 999px; background: var(--paper); }
+    .mode__btn { border: 0; background: transparent; padding: 9px 16px; }
+    .mode__btn.is-active { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,.1); }
+    .mode__btn[disabled] { opacity: .35; cursor: not-allowed; }
+    .cmp__note { margin: 0 0 22px; color: var(--grey-d); font-size: 15.5px; max-width: 80ch; min-height: 3.2em; }
+    .stage .duo, .stage .ba, .stage .phones { display: none; }
+    .stage[data-mode="slide"] .ba { display: block; }
+    .stage[data-mode="duo"] .duo, .stage[data-mode="movil"] .phones { display: grid; }
+    .ba { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 10; background: var(--paper); box-shadow: 0 40px 80px -40px rgba(0,0,0,.45); user-select: none; touch-action: pan-y; }
+    .ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; pointer-events: none; }
+    .ba__after { clip-path: inset(0 0 0 var(--pos, 50%)); }
+    .ba__handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; background: var(--white); transform: translateX(-1px); pointer-events: none; box-shadow: 0 0 20px rgba(0,0,0,.4); }
+    .ba__handle::after { content: "⟷"; position: absolute; top: 50%; left: 50%; width: 56px; height: 56px; border-radius: 50%; background: var(--sun); color: var(--ink); display: grid; place-items: center; font-size: 22px; font-weight: 700; transform: translate(-50%, -50%); box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+    .ba__tag { position: absolute; top: 18px; padding: 8px 14px; border-radius: 999px; font: 600 13px var(--display); background: rgba(10,13,11,.78); color: var(--white); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .ba__tag--l { left: 18px; } .ba__tag--r { right: 18px; background: var(--sun); color: var(--ink); }
+    .ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+    .ba input:focus-visible + .ba__handle::after { outline: 3px solid var(--ink); outline-offset: 3px; }
+    .ba__hint { text-align: center; color: var(--grey); font-size: 14px; margin: 14px 0 0; }
+    .duo { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .shot { margin: 0; }
+    .shot figcaption { display: flex; align-items: center; gap: 10px; font: 600 14px var(--display); margin-bottom: 10px; }
+    .pill { font: 600 11.5px var(--display); letter-spacing: .08em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; background: var(--paper); color: var(--grey-d); }
+    .pill--new { background: var(--sun); color: var(--ink); }
+    .shot__frame { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 60px -35px rgba(0,0,0,.45); background: var(--paper); }
+    .stage img[data-before], .stage img[data-after] { transition: opacity .3s ease; }
+    .stage.is-swapping img[data-before], .stage.is-swapping img[data-after] { opacity: 0; }
+    .phones { grid-template-columns: 1fr 1fr; gap: 28px; max-width: 700px; margin: 0 auto; }
+    .phones figcaption { justify-content: center; }
+    .phone { width: min(300px, 100%); margin: 0 auto; border-radius: 42px; padding: 10px; background: var(--ink); box-shadow: 0 40px 80px -30px rgba(0,0,0,.5); }
+    .phone img { border-radius: 33px; width: 100%; }
+
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 56px; }
+    .compare__col { padding: 34px; border-radius: var(--radius); }
+    .compare__col--old { background: var(--paper); }
+    .compare__col--new { background: var(--ink); color: var(--white); }
+    .compare h3 { margin: 0 0 18px; font-size: 22px; font-weight: 600; letter-spacing: -.03em; }
+    .compare ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .compare li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 15.5px; }
+    .compare__col--old li { color: var(--grey-d); }
+    .compare__col--old li::before { content: "—"; color: var(--grey); }
+    .compare__col--new li::before { content: "✓"; font-weight: 700; color: var(--sun); }
+
+    /* includes */
+    .inc { background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
+    .inc::before { content: ""; position: absolute; width: 60vmax; aspect-ratio: 1; right: -25vmax; top: -25vmax; border-radius: 50%; background: radial-gradient(circle, rgba(47,165,62,.28), transparent 62%); pointer-events: none; }
+    .inc .sub { color: rgba(255,255,255,.62); }
+    .inc .h2 em { color: var(--sun); }
+    .inc__grid { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 60px; background: var(--line-l); border: 1px solid var(--line-l); border-radius: var(--radius); overflow: hidden; }
+    .inc__item { background: var(--ink); padding: 32px 26px 30px; position: relative; transition: background .5s var(--ease); }
+    .inc__item:hover { background: #121a14; }
+    .inc__item b { display: inline-grid; place-items: center; width: 44px; height: 44px; margin-bottom: 26px; border-radius: 12px; background: rgba(255,198,26,.12); color: var(--sun); font: 600 15px var(--display); transition: background .4s, color .4s, transform .6s var(--ease); }
+    .inc__item:hover b { background: var(--sun); color: var(--ink); transform: rotate(-8deg) scale(1.08); }
+    .inc__item h3 { margin: 0 0 10px; font-size: 20px; font-weight: 600; letter-spacing: -.03em; line-height: 1.15; }
+    .inc__item p { margin: 0; color: rgba(255,255,255,.6); font-size: 14.5px; }
+
+    /* preview */
+    .pv__grid { display: grid; grid-template-columns: 1.7fr 1fr; gap: 40px; align-items: center; margin-top: 56px; }
+    .browser { border-radius: 12px; overflow: hidden; background: #e9eae4; box-shadow: 0 40px 80px -40px rgba(0,0,0,.45); }
+    .browser__top { height: 36px; display: flex; align-items: center; gap: 7px; padding: 0 14px; }
+    .browser__top i { width: 10px; height: 10px; border-radius: 50%; background: #c4c6bd; }
+    .browser__top span { margin-left: 14px; font-size: 12px; color: var(--grey-d); background: var(--white); padding: 3px 12px; border-radius: 999px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .pv__links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+
+    /* timeline */
+    .tl { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; position: relative; }
+    .tl::before { content: ""; position: absolute; left: 0; right: 0; top: 27px; height: 2px; background: var(--line); }
+    .tl::after { content: ""; position: absolute; left: 0; right: 0; top: 27px; height: 2px; background: linear-gradient(90deg, var(--green), var(--sun)); transform: scaleX(0); transform-origin: left; transition: transform 2.2s var(--ease) .3s; }
+    .tl.is-in::after { transform: scaleX(1); }
+    .tl li { position: relative; }
+    .tl__dot { position: relative; z-index: 1; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--white); border: 2px solid var(--ink); font: 600 15px var(--display); margin-bottom: 22px; }
+    .tl li:last-child .tl__dot { background: var(--sun); border-color: var(--sun); }
+    .tl small { display: block; font: 600 12px/1 var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+    .tl h3 { margin: 0 0 8px; font-size: 21px; letter-spacing: -.03em; line-height: 1.15; }
+    .tl p { margin: 0; color: var(--grey-d); font-size: 15px; }
+    .tl__total { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-top: 44px; padding: 14px 22px; border-radius: 18px; background: var(--paper); font: 600 16px var(--display); }
+    .tl__total b { color: var(--green); }
+
+    /* pricing */
+    .price { background: var(--paper); }
+    .price__grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; margin-top: 56px; align-items: start; }
+    .card { background: var(--white); border-radius: var(--radius); padding: clamp(24px, 3vw, 40px); border: 1px solid var(--line); }
+    .card h3 { margin: 0 0 6px; font: 600 13px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--grey-d); }
+    .card h3.mt { margin-top: 30px; }
+    .line-item { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .line-item strong { font: 600 24px var(--display); letter-spacing: -.03em; white-space: nowrap; }
+    .line-item > span { font: 500 18px var(--display); letter-spacing: -.02em; }
+    .line-item span small { display: block; font-family: var(--sans); color: var(--grey); font-size: 14px; letter-spacing: 0; font-weight: 400; }
+    .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 22px 0 10px; border: 0; padding: 0; min-width: 0; }
+    .plans legend { font: 600 13px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--grey-d); margin-bottom: 12px; padding: 0; }
+    .plan { position: relative; cursor: pointer; }
+    .plan input { position: absolute; opacity: 0; pointer-events: none; }
+    .plan__box { display: block; height: 100%; padding: 22px; border-radius: var(--radius); border: 1.5px solid var(--line); background: var(--white); transition: border-color .3s, background .3s, color .3s, transform .4s var(--ease); }
+    .plan:hover .plan__box { border-color: var(--ink); transform: translateY(-3px); }
+    .plan input:checked + .plan__box { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .plan input:focus-visible + .plan__box { outline: 3px solid var(--sun); outline-offset: 3px; }
+    .plan__name { display: flex; justify-content: space-between; align-items: center; gap: 8px; font: 600 15px var(--display); }
+    .plan__radio { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid currentColor; display: grid; place-items: center; flex: none; }
+    .plan input:checked + .plan__box .plan__radio { border-color: var(--sun); }
+    .plan input:checked + .plan__box .plan__radio::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--sun); }
+    .plan__price { display: block; margin: 16px 0 4px; font: 600 44px/1 var(--display); letter-spacing: -.05em; }
+    .plan__price small { font-size: 16px; letter-spacing: 0; font-weight: 400; opacity: .7; }
+    .plan__note { font-size: 13.5px; opacity: .7; }
+    .plan__badge { display: inline-block; margin-top: 12px; font: 600 12px var(--display); padding: 5px 10px; border-radius: 999px; background: var(--paper); color: var(--ink); }
+    .plan input:checked + .plan__box .plan__badge { background: var(--sun); }
+    .domain { display: grid; grid-template-columns: 44px 1fr auto; gap: 14px; align-items: center; margin: 16px 0 6px; padding: 18px; border-radius: var(--radius); border: 1.5px solid var(--ink); background: var(--paper); }
+    .domain__ico { width: 44px; height: 44px; border-radius: 12px; background: var(--ink); color: var(--sun); display: grid; place-items: center; }
+    .domain__ico svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+    .domain b { display: block; font: 600 16px var(--display); }
+    .domain small { display: block; color: var(--grey-d); font-size: 13.5px; line-height: 1.4; margin-top: 2px; }
+    .domain strong { font: 600 22px var(--display); letter-spacing: -.03em; white-space: nowrap; }
+    .domain strong small { display: inline; font-size: 13px; color: var(--grey-d); }
+    .incl { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 10px; }
+    .incl li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; font-size: 15px; }
+    .incl li::before { content: "✓"; font-weight: 700; color: var(--green); }
+    .notinc { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .notinc h4 { margin: 0 0 10px; font: 600 13px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--grey-d); }
+    .notinc ul { margin: 0; padding-left: 18px; color: var(--grey-d); font-size: 14.5px; display: grid; gap: 6px; }
+
+    .summary { position: sticky; top: 96px; background: var(--ink); color: var(--white); border: 0; overflow: hidden; }
+    .summary::before { content: ""; position: absolute; width: 360px; aspect-ratio: 1; right: -140px; top: -140px; border-radius: 50%; background: radial-gradient(circle, rgba(255,198,26,.28), transparent 65%); pointer-events: none; }
+    .summary h3 { color: rgba(255,255,255,.55); position: relative; }
+    .summary .line-item { border-color: var(--line-l); position: relative; }
+    .summary .line-item span small { color: rgba(255,255,255,.5); }
+    .total { padding: 26px 0 8px; position: relative; }
+    .total small { display: block; font: 600 12.5px var(--display); letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+    .total__num { display: flex; align-items: flex-start; font: 600 clamp(64px, 7vw, 108px)/.95 var(--display); letter-spacing: -.06em; font-variant-numeric: tabular-nums; color: var(--sun); }
+    .total__num sup { font-size: .35em; margin: .2em .08em 0 0; letter-spacing: 0; }
+    .total__num span.usd { font-size: .2em; letter-spacing: 0; margin: auto 0 .45em .4em; color: rgba(255,255,255,.55); }
+    .renew { margin: 14px 0 0; padding: 16px 18px; border-radius: 12px; background: rgba(255,255,255,.06); border: 1px solid var(--line-l); font-size: 14.5px; color: rgba(255,255,255,.8); }
+    .renew b { display: block; font: 600 12px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--sun); margin-bottom: 6px; }
+    .renew strong { color: var(--white); }
+
+    .accept { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line-l); position: relative; }
+    .field { position: relative; margin-bottom: 18px; }
+    .field input { width: 100%; border: 0; border-bottom: 1px solid rgba(255,255,255,.3); background: transparent; color: var(--white); font: 500 17px var(--sans); padding: 24px 0 10px; outline: none; border-radius: 0; }
+    .field label { position: absolute; left: 0; top: 22px; color: rgba(255,255,255,.5); pointer-events: none; transform-origin: left; transition: transform .4s var(--ease), color .3s; }
+    .field input:focus + label, .field input:not(:placeholder-shown) + label { transform: translateY(-20px) scale(.78); color: var(--sun); }
+    .field::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, var(--green), var(--sun)); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease); }
+    .field:focus-within::after { transform: scaleX(1); }
+    .field.has-error input { border-color: #ff6b5b; }
+    .check { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-size: 14.5px; color: rgba(255,255,255,.8); cursor: pointer; margin: 6px 0 22px; }
+    .check input { width: 20px; height: 20px; accent-color: var(--sun); margin: 2px 0 0; cursor: pointer; }
+    .accept .btn { width: 100%; }
+    .accept__note { font-size: 13px; color: rgba(255,255,255,.5); text-align: center; margin: 12px 0 0; }
+    .accept__ok { text-align: center; font-weight: 600; font-size: 14px; margin-top: 10px; color: var(--sun); }
+
+    /* FAQ */
+    .faq__list { margin-top: 48px; border-top: 1px solid var(--line); }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 24px 0; cursor: pointer; font: 600 clamp(19px, 2vw, 24px)/1.25 var(--display); letter-spacing: -.025em; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary i { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); position: relative; transition: background .4s, border-color .4s, transform .5s var(--ease); }
+    .faq summary i::before, .faq summary i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 2px; margin: -1px 0 0 -7px; background: currentColor; transition: transform .5s var(--ease); }
+    .faq summary i::after { transform: rotate(90deg); }
+    .faq details[open] summary i { background: var(--sun); border-color: var(--sun); transform: rotate(180deg); }
+    .faq details[open] summary i::after { transform: rotate(0); }
+    .faq summary:hover { color: var(--green); }
+    .faq__a { padding: 0 60px 26px 0; color: var(--grey-d); font-size: 16.5px; max-width: 80ch; }
+    .faq__a p { margin: 0; }
+    .faq__a strong { color: var(--ink); }
+
+    /* terms + footer */
+    .terms { padding: 0 0 80px; }
+    .terms__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; border-top: 2px solid var(--ink); padding-top: 30px; }
+    .terms h4 { margin: 0 0 8px; font: 600 13px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
+    .terms p { margin: 0; font-size: 15.5px; }
+    .foot { background: var(--ink); color: rgba(255,255,255,.7); padding: clamp(70px, 9vw, 120px) 0 28px; overflow: hidden; }
+    .foot__big { font: 600 clamp(44px, 7.4vw, 120px)/.95 var(--display); letter-spacing: -.055em; color: var(--white); margin: 0 0 40px; max-width: 14ch; }
+    .foot__big em { color: var(--sun); }
+    .foot__row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; padding-top: 26px; border-top: 1px solid var(--line-l); font-size: 14px; }
+    .foot__row p { margin: 0; }
+    .foot__by a { color: var(--white); border-bottom: 1px solid rgba(255,255,255,.35); }
+    .foot__by a:hover { border-color: var(--sun); color: var(--sun); }
+
+    /* mobile sticky total */
+    .mbar { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40; display: none; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 10px 10px 20px; border-radius: 999px; background: var(--ink); color: var(--white); box-shadow: 0 20px 40px -12px rgba(0,0,0,.5); transform: translateY(140%); transition: transform .6s var(--ease); }
+    .mbar.is-visible { transform: none; }
+    .mbar small { display: block; font: 600 10.5px var(--display); letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.55); line-height: 1.2; }
+    .mbar strong { font: 600 22px var(--display); letter-spacing: -.03em; color: var(--sun); }
+    .mbar a { background: var(--sun); color: var(--ink); font: 600 14px var(--display); padding: 12px 18px; border-radius: 999px; white-space: nowrap; }
+
+    @media (max-width: 1000px) {
+      .meta { grid-template-columns: 1fr 1fr; }
+      .meta div:nth-child(3) { border-left: 0; padding-left: 0; }
+      .meta div:nth-child(n+3) { padding-top: 18px; }
+      .inc__grid { grid-template-columns: 1fr 1fr; }
+      .pv__grid, .price__grid { grid-template-columns: 1fr; }
+      .summary { position: static; }
+      .terms__grid { grid-template-columns: 1fr; }
+      .tl { grid-template-columns: 1fr 1fr; row-gap: 36px; }
+      .tl::before, .tl::after { display: none; }
+    }
+    @media (max-width: 680px) {
+      .bar { height: 64px; gap: 8px; }
+      .bar__brand span, .bar a.bar__link { display: none; }
+      .bar button.bar__link { padding: 10px 14px; }
+      .compare { grid-template-columns: 1fr; }
+      .duo { grid-template-columns: 1fr; gap: 26px; }
+      .phones { gap: 14px; }
+      .cmp__bar > * { min-width: 0; }
+      .tabs { flex: 1 1 100%; flex-wrap: nowrap; overflow-x: auto; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 4px; scrollbar-width: none; }
+      .tab { white-space: nowrap; }
+      .inc__grid, .tl { grid-template-columns: 1fr; }
+      .plans { grid-template-columns: 1fr; }
+      .ba__handle::after { width: 46px; height: 46px; }
+      .mbar { display: flex; }
+      .meta strong { font-size: 16px; }
+      .domain { grid-template-columns: 44px 1fr; }
+      .domain strong { grid-column: 2; }
+      .faq__a { padding-right: 0; }
+      .hero__actions .btn { flex: 1 1 auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+      .js .rv { opacity: 1; transform: none; }
+    }
+    @media print {
+      .bar, .mbar, .hero__actions, .pv__links, .accept, .ba__hint, .ba input, .curtain, .cmp__bar { display: none !important; }
+      .hero { min-height: auto; padding: 40px 0; }
+      .js .rv { opacity: 1 !important; transform: none !important; }
+      section { padding: 40px 0; break-inside: avoid; }
+      .summary { position: static; }
+      .faq details { display: block; }
+      .faq__a { display: block !important; }
+    }
+  </style>
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+  <div class="curtain" aria-hidden="true"></div>
+
+  <header class="bar">
+    <a href="../" class="bar__brand" aria-label="Solar Engineering UG website">
+      <img src="../assets/img/mark-light.png" alt="" width="46" height="36" />
+      <span>Solar Engineering <b>UG</b> <small>· <span data-i18n="bar.prop">Proposal</span></small></span>
+    </a>
+    <div class="lang" role="group" aria-label="Language / Lugha">
+      <button type="button" class="lang__btn is-active" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" class="lang__btn" data-lang="sw" aria-pressed="false">SW</button>
+      <i class="lang__pill" aria-hidden="true"></i>
+    </div>
+    <a href="../" class="bar__link" target="_blank" rel="noopener" data-i18n="bar.site">View new website ↗</a>
+    <button type="button" class="bar__link" onclick="window.print()" data-i18n="bar.pdf">Save PDF</button>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__bg"><img src="../assets/img/hero-2000.webp" alt="" /></div>
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container">
+      <p class="label label--light" data-in style="--d:.1s"><span data-i18n="h.label">Website proposal</span></p>
+      <h1 data-in style="--d:.2s" data-i18n="h.title">A website that powers <em>Solar Engineering UG.</em></h1>
+      <p class="hero__lead" data-in style="--d:.35s" data-i18n="h.lead">A modern, bilingual (English &amp; Kiswahili) website that showcases your installations, products and services, turns visitors into WhatsApp enquiries and helps customers in Uganda find you on Google.</p>
+      <div class="hero__actions" data-in style="--d:.45s">
+        <a href="#investment" class="btn btn--sun"><span data-i18n="h.cta1">See the investment</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+        <a href="../" class="btn btn--outline" target="_blank" rel="noopener" data-i18n="h.cta2">Open the new website ↗</a>
+      </div>
+      <div class="meta" data-in style="--d:.55s">
+        <div><small data-i18n="m.for">Prepared for</small><strong>Solar Engineering UG<br />Kampala, Uganda</strong></div>
+        <div><small data-i18n="m.by">Prepared by</small><strong>DGP Global Group</strong></div>
+        <div><small data-i18n="m.time">Delivery</small><strong data-i18n="m.timev">7 business days<br />after approval</strong></div>
+        <div><small data-i18n="m.inv">Investment</small><strong data-i18n="m.invv">Website $455<br />+ hosting + domain</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 BEFORE / AFTER ============ -->
+  <section id="before-after">
+    <div class="container">
+      <p class="label rv"><span data-i18n="ba.label">01 — Before &amp; after</span></p>
+      <h2 class="h2 rv" data-i18n="ba.title">From a basic page to a <em>premium brand experience.</em></h2>
+      <p class="sub rv" data-i18n="ba.sub">This is the reference website you shared next to the new version, section by section. Choose a section and drag the handle to compare.</p>
+
+      <div class="cmp rv">
+        <div class="cmp__bar">
+          <div class="tabs" role="tablist" aria-label="Sections">
+            <button type="button" role="tab" class="tab is-active" aria-selected="true" data-tab="inicio" data-i18n="tab.home">Home</button>
+            <button type="button" role="tab" class="tab" aria-selected="false" data-tab="servicios" data-i18n="tab.services">Services</button>
+            <button type="button" role="tab" class="tab" aria-selected="false" data-tab="proyectos" data-i18n="tab.projects">Projects</button>
+            <button type="button" role="tab" class="tab" aria-selected="false" data-tab="contacto" data-i18n="tab.contact">Contact</button>
+            <button type="button" role="tab" class="tab" aria-selected="false" data-tab="movil" data-i18n="tab.mobile">Mobile</button>
+          </div>
+          <div class="mode" role="group" aria-label="View">
+            <button type="button" class="mode__btn is-active" data-mode="slide" data-i18n="mode.slide">Slider</button>
+            <button type="button" class="mode__btn" data-mode="duo" data-i18n="mode.duo">Side by side</button>
+          </div>
+        </div>
+        <p class="cmp__note" data-note></p>
+
+        <div class="stage" data-mode="slide">
+          <div class="ba">
+            <img src="img/ba/inicio-antes.webp" alt="Reference website: Home" data-before width="1280" height="800" />
+            <img src="img/ba/inicio-despues.webp" alt="New website: Home" class="ba__after" data-after width="1280" height="800" />
+            <span class="ba__tag ba__tag--l" data-i18n="tag.before">Before</span>
+            <span class="ba__tag ba__tag--r" data-i18n="tag.after">New website</span>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare before and after" />
+            <span class="ba__handle" aria-hidden="true"></span>
+          </div>
+          <div class="duo">
+            <figure class="shot"><figcaption><span class="pill" data-i18n="tag.before">Before</span></figcaption><div class="shot__frame"><img src="img/ba/inicio-antes.webp" alt="" data-before width="1280" height="800" /></div></figure>
+            <figure class="shot"><figcaption><span class="pill pill--new" data-i18n="tag.after">New website</span></figcaption><div class="shot__frame"><img src="img/ba/inicio-despues.webp" alt="" data-after width="1280" height="800" /></div></figure>
+          </div>
+          <div class="phones">
+            <figure class="shot"><figcaption><span class="pill" data-i18n="tag.before">Before</span></figcaption><div class="phone"><img src="img/ba/movil-antes.webp" alt="Reference website on mobile" loading="lazy" width="600" height="1299" /></div></figure>
+            <figure class="shot"><figcaption><span class="pill pill--new" data-i18n="tag.after">New website</span></figcaption><div class="phone"><img src="img/ba/movil-despues.webp" alt="New website on mobile" loading="lazy" width="600" height="1299" /></div></figure>
+          </div>
+          <p class="ba__hint" data-hint data-i18n="ba.hint">← Drag to compare →</p>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="compare__col compare__col--old rv">
+          <h3 data-i18n="cmp.old">Reference website</h3>
+          <ul>
+            <li data-i18n="cmp.o1">Generic cartoon illustrations instead of real solar imagery</li>
+            <li data-i18n="cmp.o2">Sections that stay on “Loading…” or “No projects yet”</li>
+            <li data-i18n="cmp.o3">Counters that show 0 systems installed</li>
+            <li data-i18n="cmp.o4">English only</li>
+            <li data-i18n="cmp.o5">No product showcase or price requests</li>
+            <li data-i18n="cmp.o6">No social media links</li>
+          </ul>
+        </div>
+        <div class="compare__col compare__col--new rv" style="--d:.1s">
+          <h3 data-i18n="cmp.new">New website</h3>
+          <ul>
+            <li data-i18n="cmp.n1">Premium design in your green, yellow &amp; black brand colours</li>
+            <li data-i18n="cmp.n2">Professional animations: preloader, reveals, pinned project gallery</li>
+            <li data-i18n="cmp.n3">English ⇄ Kiswahili with one tap</li>
+            <li data-i18n="cmp.n4">Products section with “Ask for price” on WhatsApp</li>
+            <li data-i18n="cmp.n5">Quote form that arrives on WhatsApp or email, ready to answer</li>
+            <li data-i18n="cmp.n6">SEO for Google in Uganda + social media links</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 INCLUDED ============ -->
+  <section class="inc">
+    <div class="container">
+      <p class="label label--light rv"><span data-i18n="inc.label">02 — What's included</span></p>
+      <h2 class="h2 rv" data-i18n="inc.title">Everything you asked for, <em>in one package.</em></h2>
+      <p class="sub rv" data-i18n="inc.sub">A complete website built around your business: installations, products, services, completed projects and every way for customers to reach you.</p>
+      <div class="inc__grid">
+        <div class="inc__item rv"><b>01</b><h3 data-i18n="i1.t">Custom premium design</h3><p data-i18n="i1.p">Green, yellow and black with your logo. Modern, clean and trustworthy for an international market.</p></div>
+        <div class="inc__item rv" style="--d:.05s"><b>02</b><h3 data-i18n="i2.t">English &amp; Kiswahili</h3><p data-i18n="i2.p">The whole site in both languages with a switch button; the choice is remembered.</p></div>
+        <div class="inc__item rv" style="--d:.1s"><b>03</b><h3 data-i18n="i3.t">Mobile &amp; desktop</h3><p data-i18n="i3.p">Designed for phones first, and sharp on tablets and computers.</p></div>
+        <div class="inc__item rv" style="--d:.15s"><b>04</b><h3 data-i18n="i4.t">Your 9 services</h3><p data-i18n="i4.p">From solar design to energy audits, each with its image, description and a direct quote request.</p></div>
+        <div class="inc__item rv"><b>05</b><h3 data-i18n="i5.t">Products showcase</h3><p data-i18n="i5.p">Panels, inverters, lithium batteries, pumps, street lights and CCTV, with “Ask for price”.</p></div>
+        <div class="inc__item rv" style="--d:.05s"><b>06</b><h3 data-i18n="i6.t">Projects portfolio</h3><p data-i18n="i6.p">A gallery of completed installations. We load your real project photos before launch.</p></div>
+        <div class="inc__item rv" style="--d:.1s"><b>07</b><h3 data-i18n="i7.t">WhatsApp integration</h3><p data-i18n="i7.p">Floating button, pre-written messages and a quote form that lands in your WhatsApp.</p></div>
+        <div class="inc__item rv" style="--d:.15s"><b>08</b><h3 data-i18n="i8.t">Contact, map &amp; socials</h3><p data-i18n="i8.p">Both phone numbers, email, hours, Google Maps location and your social media links.</p></div>
+        <div class="inc__item rv"><b>09</b><h3 data-i18n="i9.t">Google SEO for Uganda</h3><p data-i18n="i9.p">Local keywords, business schema, sitemap and Google Search Console set-up.</p></div>
+        <div class="inc__item rv" style="--d:.05s"><b>10</b><h3 data-i18n="i10.t">Professional animations</h3><p data-i18n="i10.p">Smooth scrolling, animated headlines and interactive sections that feel premium.</p></div>
+        <div class="inc__item rv" style="--d:.1s"><b>11</b><h3 data-i18n="i11.t">SSL security &amp; speed</h3><p data-i18n="i11.p">Secure https padlock, optimised images and fast loading on mobile data.</p></div>
+        <div class="inc__item rv" style="--d:.15s"><b>12</b><h3 data-i18n="i12.t">100% your ownership</h3><p data-i18n="i12.p">The website, content and domain belong to Solar Engineering UG.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 PREVIEW ============ -->
+  <section id="preview">
+    <div class="container">
+      <p class="label rv"><span data-i18n="pv.label">03 — Preview</span></p>
+      <h2 class="h2 rv" data-i18n="pv.title">Already built. <em>Ready to launch.</em></h2>
+      <p class="sub rv" data-i18n="pv.sub">The new website is live as a preview. Open it on your phone and computer, switch to Kiswahili, and try the WhatsApp buttons.</p>
+      <div class="pv__grid">
+        <div class="browser rv">
+          <div class="browser__top"><i></i><i></i><i></i><span>solarengineeringug.dgp-link.com</span></div>
+          <img src="img/ba/inicio-despues.webp" alt="New website on desktop" loading="lazy" width="1280" height="800" />
+        </div>
+        <div class="phone rv" style="--d:.1s"><img src="img/ba/movil-despues.webp" alt="New website on mobile" loading="lazy" width="600" height="1299" /></div>
+      </div>
+      <div class="pv__links rv">
+        <a href="../" class="btn btn--dark" target="_blank" rel="noopener"><span data-i18n="pv.open">Open the website</span> ↗</a>
+        <a href="../?lang=sw" class="btn btn--sun" target="_blank" rel="noopener"><span data-i18n="pv.sw">See it in Kiswahili</span> ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 TIMELINE ============ -->
+  <section id="timeline" style="padding-top: 0">
+    <div class="container">
+      <p class="label rv"><span data-i18n="tl.label">04 — Timeline</span></p>
+      <h2 class="h2 rv" data-i18n="tl.title">Online in <em>7 business days.</em></h2>
+      <p class="sub rv" data-i18n="tl.sub">The design and development are done. What remains is adding your real content and connecting your domain.</p>
+      <ol class="tl rv">
+        <li><span class="tl__dot">1</span><small data-i18n="tl.d1">Day 1</small><h3 data-i18n="tl.1t">Approval &amp; domain</h3><p data-i18n="tl.1p">You approve the proposal, we register your domain and set up hosting.</p></li>
+        <li><span class="tl__dot">2</span><small data-i18n="tl.d2">Days 2–4</small><h3 data-i18n="tl.2t">Your content</h3><p data-i18n="tl.2p">We add your real project photos, products, social media links and any text changes.</p></li>
+        <li><span class="tl__dot">3</span><small data-i18n="tl.d3">Days 5–6</small><h3 data-i18n="tl.3t">SEO &amp; final review</h3><p data-i18n="tl.3p">Google set-up, speed and mobile checks, and your final review in both languages.</p></li>
+        <li><span class="tl__dot">✺</span><small data-i18n="tl.d4">Day 7</small><h3 data-i18n="tl.4t">Launch</h3><p data-i18n="tl.4p">Your website goes live on your domain with SSL security, ready for customers.</p></li>
+      </ol>
+      <p class="tl__total rv"><span data-i18n="tl.total">Total delivery time:</span> <b data-i18n="tl.totalv">7 business days</b></p>
+    </div>
+  </section>
+
+  <!-- ============ 05 INVESTMENT ============ -->
+  <section class="price" id="investment">
+    <div class="container">
+      <p class="label rv"><span data-i18n="pr.label">05 — Investment</span></p>
+      <h2 class="h2 rv" data-i18n="pr.title">Build your <em>investment.</em></h2>
+      <p class="sub rv" data-i18n="pr.sub">The website is a one-time payment. Hosting keeps it online and secure — choose to pay yearly or monthly. The domain is renewed once a year.</p>
+
+      <form class="price__grid" id="accept" novalidate>
+        <div class="card rv">
+          <h3 data-i18n="pr.web">Website</h3>
+          <div class="line-item">
+            <span><span data-i18n="pr.webt">Design &amp; development</span><small data-i18n="pr.webs">One-time payment · everything in this proposal</small></span>
+            <strong>$455</strong>
+          </div>
+
+          <fieldset class="plans">
+            <legend data-i18n="pr.host">Hosting plan</legend>
+            <label class="plan">
+              <input type="radio" name="plan" value="annual" checked />
+              <span class="plan__box">
+                <span class="plan__name"><span data-i18n="pl.a">Annual</span> <span class="plan__radio"></span></span>
+                <span class="plan__price">$145<small data-i18n="pl.ay"> /year</small></span>
+                <span class="plan__note" data-i18n="pl.an">Equal to $12.08 per month</span><br />
+                <span class="plan__badge" data-i18n="pl.ab">Save $155 a year</span>
+              </span>
+            </label>
+            <label class="plan">
+              <input type="radio" name="plan" value="monthly" />
+              <span class="plan__box">
+                <span class="plan__name"><span data-i18n="pl.m">Monthly</span> <span class="plan__radio"></span></span>
+                <span class="plan__price">$25<small data-i18n="pl.mm"> /month</small></span>
+                <span class="plan__note" data-i18n="pl.mn">$300 a year if paid month by month</span><br />
+                <span class="plan__badge" data-i18n="pl.mb">No yearly payment</span>
+              </span>
+            </label>
+          </fieldset>
+
+          <h3 class="mt" data-i18n="pr.dom">Domain</h3>
+          <div class="domain">
+            <span class="domain__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg></span>
+            <span><b data-i18n="pr.domt">Domain registration</b><small data-i18n="pr.doms">e.g. solarengineeringug.com · registered in your company's name</small></span>
+            <strong>$25<small data-i18n="pl.ay"> /year</small></strong>
+          </div>
+
+          <ul class="incl">
+            <li data-i18n="inc.l1">Hosting: your website online 24/7</li>
+            <li data-i18n="inc.l2">SSL security certificate (https padlock)</li>
+            <li data-i18n="inc.l3">Domain connection and professional set-up</li>
+            <li data-i18n="inc.l4">Technical maintenance, security updates and backups</li>
+            <li data-i18n="inc.l5">Full ownership of the website, content and domain</li>
+          </ul>
+
+          <div class="notinc">
+            <h4 data-i18n="ni.t">Not included</h4>
+            <ul>
+              <li data-i18n="ni.1">New features or pages outside this proposal: quoted separately</li>
+              <li data-i18n="ni.2">Paid advertising budgets (Google, Facebook, Instagram, TikTok)</li>
+              <li data-i18n="ni.3">Professional photo or video shoots</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card summary rv" style="--d:.1s">
+          <h3 data-i18n="sm.t">Summary</h3>
+          <div class="line-item"><span><span data-i18n="pr.webt">Design &amp; development</span><small data-i18n="sm.once">One-time payment</small></span><span>$455</span></div>
+          <div class="line-item"><span><span data-plan-label>Hosting · Annual plan</span><small data-plan-sub>First year</small></span><span data-plan-price>$145</span></div>
+          <div class="line-item"><span><span data-i18n="pr.domt">Domain registration</span><small data-i18n="sm.y1">First year</small></span><span>$25</span></div>
+          <div class="total">
+            <small data-i18n="sm.today">Total to pay today</small>
+            <div class="total__num"><sup>$</sup><span data-total>625</span><span class="usd">USD</span></div>
+          </div>
+          <div class="renew"><b data-i18n="sm.renew">Renewals</b><span data-then>From year 2: <strong>$170 per year</strong> (hosting $145 + domain $25).</span></div>
+
+          <div class="accept">
+            <div class="field">
+              <input id="a-name" name="name" type="text" placeholder=" " autocomplete="name" required />
+              <label for="a-name" data-i18n="ac.name">Name of the person approving*</label>
+            </div>
+            <label class="check"><input type="checkbox" name="ok" required /> <span data-i18n="ac.check">I have reviewed this proposal and accept it with the selected hosting plan.</span></label>
+            <button type="submit" class="btn btn--wa">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 1.9 17.7L.3 23.7l6.2-1.6A11.8 11.8 0 0 0 20.5 3.5ZM12 21.6c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.6Zm5.4-7.3c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/></svg>
+              <span data-i18n="ac.btn">Accept proposal on WhatsApp</span>
+            </button>
+            <p class="accept__note" data-i18n="ac.note">Your acceptance is sent to DGP Global Group to prepare the invoice.</p>
+            <div class="accept__ok" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ 06 FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <p class="label rv"><span data-i18n="fq.label">06 — Your questions, answered</span></p>
+      <h2 class="h2 rv" data-i18n="fq.title">Clear costs. <em>No surprises.</em></h2>
+      <div class="faq__list rv">
+        <details open>
+          <summary><span data-i18n="q1">What is the total cost?</span><i aria-hidden="true"></i></summary>
+          <div class="faq__a"><p data-i18n="a1">With the annual hosting plan you pay <strong>$625 today</strong> ($455 website + $145 hosting + $25 domain). With the monthly plan you pay <strong>$505 today</strong> ($455 + $25 first month + $25 domain).</p></div>
+        </details>
+        <details>
+          <summary><span data-i18n="q2">What are the annual renewal costs?</span><i aria-hidden="true"></i></summary>
+          <div class="faq__a"><p data-i18n="a2">Annual plan: <strong>$170 per year</strong> from the second year ($145 hosting + $25 domain). Monthly plan: <strong>$25 per month</strong> for hosting + <strong>$25 per year</strong> for the domain. The $455 website fee is paid only once.</p></div>
+        </details>
+        <details>
+          <summary><span data-i18n="q3">Is SSL security included?</span><i aria-hidden="true"></i></summary>
+          <div class="faq__a"><p data-i18n="a3">Yes. The SSL certificate (the https padlock) is included in both hosting plans at no extra cost and renews automatically.</p></div>
+        </details>
+        <details>
+          <summary><span data-i18n="q4">Who owns the website and the domain?</span><i aria-hidden="true"></i></summary>
+          <div class="faq__a"><p data-i18n="a4">You do. The domain is registered in the name of Solar Engineering UG, and the website, its design and its content belong 100% to your company once paid.</p></div>
+        </details>
+        <details>
+          <summary><span data-i18n="q5">Are there future maintenance fees?</span><i aria-hidden="true"></i></summary>
+          <div class="faq__a"><p data-i18n="a5">No separate maintenance fee. Technical maintenance, security updates and backups are included in the hosting plan. New pages or new features are quoted separately, only if you request them.</p></div>
+        </details>
+        <details>
+          <summary><span data-i18n="q6">How long will it take to complete?</span><i aria-hidden="true"></i></summary>
+          <div class="faq__a"><p data-i18n="a6"><strong>7 business days</strong> after approval and payment. The design is already built, so we only need your real photos, social media links and final text.</p></div>
+        </details>
+        <details>
+          <summary><span data-i18n="q7">Will customers find us on Google?</span><i aria-hidden="true"></i></summary>
+          <div class="faq__a"><p data-i18n="a7">The site is optimised for searches such as “solar installation Kampala” or “lithium batteries Uganda”: page titles, descriptions, business information for Google, a sitemap and Google Search Console set-up. Rankings grow over time with real content and reviews.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TERMS ============ -->
+  <div class="terms container">
+    <div class="terms__grid">
+      <div class="rv"><h4 data-i18n="t1.t">Delivery</h4><p data-i18n="t1.p">The website goes live on your domain within 7 business days after the proposal is approved and payment is received.</p></div>
+      <div class="rv" style="--d:.05s"><h4 data-i18n="t2.t">Invoice</h4><p data-i18n="t2.p">After you accept, DGP Global Group sends the invoice with the hosting plan you selected.</p></div>
+      <div class="rv" style="--d:.1s"><h4 data-i18n="t3.t">Validity</h4><p data-i18n="t3.p">Issued on 28 October 2026. Valid for 15 days.</p></div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="container">
+      <p class="foot__big" data-i18n="ft.big">Let's power Solar Engineering UG's <em>next chapter.</em></p>
+      <div class="foot__row">
+        <p class="foot__by"><span data-i18n="ft.by">Proposal prepared by</span> <a href="https://dgpglobalgroup.com" target="_blank" rel="noopener">DGP Global Group</a></p>
+        <p>Solar Engineering UG · Kampala, Uganda</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mbar" aria-hidden="true">
+    <div><small data-i18n="sm.today">Total to pay today</small><strong>$<span data-total>625</span></strong></div>
+    <a href="#investment" data-i18n="mb.go">Accept proposal</a>
+  </div>
+
+  <script>
+  (() => {
+    const $ = (s, c = document) => c.querySelector(s);
+    const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const DGP_WHATSAPP = "12398231738";
+    const WEBSITE = 455;
+    const DOMAIN = 25;
+
+    /* ---------- Kiswahili (English lives in the HTML) ---------- */
+    const SW = {
+      "bar.prop": "Pendekezo",
+      "bar.site": "Tazama tovuti mpya ↗",
+      "bar.pdf": "Hifadhi PDF",
+      "h.label": "Pendekezo la tovuti",
+      "h.title": "Tovuti inayowezesha <em>Solar Engineering UG.</em>",
+      "h.lead": "Tovuti ya kisasa ya lugha mbili (Kiingereza na Kiswahili) inayoonyesha mifumo mliyofunga, bidhaa na huduma zenu, inayogeuza wageni kuwa maulizo ya WhatsApp na kuwasaidia wateja nchini Uganda kuwapata kwenye Google.",
+      "h.cta1": "Tazama uwekezaji",
+      "h.cta2": "Fungua tovuti mpya ↗",
+      "m.for": "Imeandaliwa kwa",
+      "m.by": "Imeandaliwa na",
+      "m.time": "Muda wa kukabidhi",
+      "m.timev": "Siku 7 za kazi<br />baada ya kuidhinisha",
+      "m.inv": "Uwekezaji",
+      "m.invv": "Tovuti $455<br />+ hosting + domain",
+
+      "ba.label": "01 — Kabla na baada",
+      "ba.title": "Kutoka ukurasa wa kawaida hadi <em>uzoefu wa chapa wa hadhi ya juu.</em>",
+      "ba.sub": "Hii ni tovuti ya mfano mliyotutumia ikilinganishwa na toleo jipya, sehemu kwa sehemu. Chagua sehemu na uvute kitufe ili kulinganisha.",
+      "tab.home": "Mwanzo",
+      "tab.services": "Huduma",
+      "tab.projects": "Miradi",
+      "tab.contact": "Mawasiliano",
+      "tab.mobile": "Simu",
+      "mode.slide": "Kitelezi",
+      "mode.duo": "Kando kwa kando",
+      "tag.before": "Kabla",
+      "tag.after": "Tovuti mpya",
+      "ba.hint": "← Vuta ili kulinganisha →",
+      "cmp.old": "Tovuti ya mfano",
+      "cmp.o1": "Michoro ya katuni badala ya picha halisi za sola",
+      "cmp.o2": "Sehemu zinazobaki kwenye “Loading…” au “No projects yet”",
+      "cmp.o3": "Vihesabu vinavyoonyesha mifumo 0 iliyofungwa",
+      "cmp.o4": "Kiingereza pekee",
+      "cmp.o5": "Hakuna sehemu ya bidhaa wala maombi ya bei",
+      "cmp.o6": "Hakuna viungo vya mitandao ya kijamii",
+      "cmp.new": "Tovuti mpya",
+      "cmp.n1": "Muundo wa hadhi ya juu kwa rangi zenu za kijani, njano na nyeusi",
+      "cmp.n2": "Michoro hai ya kitaalamu: preloader, maandishi yanayojitokeza, ghala la miradi",
+      "cmp.n3": "Kiingereza ⇄ Kiswahili kwa kubofya mara moja",
+      "cmp.n4": "Sehemu ya bidhaa yenye “Uliza bei” kwenye WhatsApp",
+      "cmp.n5": "Fomu ya makadirio inayofika kwenye WhatsApp au barua pepe",
+      "cmp.n6": "SEO ya Google kwa Uganda + viungo vya mitandao ya kijamii",
+
+      "inc.label": "02 — Kilichojumuishwa",
+      "inc.title": "Kila mlichoomba, <em>katika kifurushi kimoja.</em>",
+      "inc.sub": "Tovuti kamili iliyojengwa kwa ajili ya biashara yenu: mifumo mliyofunga, bidhaa, huduma, miradi iliyokamilika na kila njia ya wateja kuwafikia.",
+      "i1.t": "Muundo maalum wa hadhi ya juu",
+      "i1.p": "Kijani, njano na nyeusi pamoja na nembo yenu. Wa kisasa, safi na wa kuaminika kwa soko la kimataifa.",
+      "i2.t": "Kiingereza na Kiswahili",
+      "i2.p": "Tovuti nzima kwa lugha zote mbili kwa kitufe cha kubadilisha; chaguo linakumbukwa.",
+      "i3.t": "Simu na kompyuta",
+      "i3.p": "Imeundwa kwanza kwa simu, na inaonekana vizuri kwenye tableti na kompyuta.",
+      "i4.t": "Huduma zenu 9",
+      "i4.p": "Kuanzia usanifu wa sola hadi ukaguzi wa nishati, kila moja na picha, maelezo na ombi la bei moja kwa moja.",
+      "i5.t": "Maonyesho ya bidhaa",
+      "i5.p": "Paneli, inverta, betri za lithiamu, pampu, taa za barabarani na CCTV, pamoja na “Uliza bei”.",
+      "i6.t": "Ghala la miradi",
+      "i6.p": "Picha za mifumo iliyokamilika. Tutaweka picha zenu halisi za miradi kabla ya kuzindua.",
+      "i7.t": "Muunganiko wa WhatsApp",
+      "i7.p": "Kitufe kinachoelea, ujumbe ulioandikwa tayari na fomu ya makadirio inayofika kwenye WhatsApp yenu.",
+      "i8.t": "Mawasiliano, ramani na mitandao",
+      "i8.p": "Namba zote mbili za simu, barua pepe, saa za kazi, ramani ya Google na viungo vya mitandao ya kijamii.",
+      "i9.t": "SEO ya Google kwa Uganda",
+      "i9.p": "Maneno muhimu ya eneo, taarifa za biashara kwa Google, sitemap na kuweka Google Search Console.",
+      "i10.t": "Michoro hai ya kitaalamu",
+      "i10.p": "Kusogeza kwa ulaini, vichwa vinavyojitokeza na sehemu shirikishi zinazoonekana za hadhi ya juu.",
+      "i11.t": "Usalama wa SSL na kasi",
+      "i11.p": "Kufuli salama ya https, picha zilizoboreshwa na kufunguka haraka hata kwa data ya simu.",
+      "i12.t": "Umiliki wenu 100%",
+      "i12.p": "Tovuti, maudhui na domain ni mali ya Solar Engineering UG.",
+
+      "pv.label": "03 — Muonekano",
+      "pv.title": "Imeshajengwa. <em>Iko tayari kuzinduliwa.</em>",
+      "pv.sub": "Tovuti mpya iko hewani kama muonekano wa awali. Ifungue kwenye simu na kompyuta, badilisha kuwa Kiswahili, na ujaribu vitufe vya WhatsApp.",
+      "pv.open": "Fungua tovuti",
+      "pv.sw": "Ione kwa Kiswahili",
+
+      "tl.label": "04 — Ratiba",
+      "tl.title": "Hewani ndani ya <em>siku 7 za kazi.</em>",
+      "tl.sub": "Usanifu na utengenezaji vimekamilika. Kilichobaki ni kuweka maudhui yenu halisi na kuunganisha domain yenu.",
+      "tl.d1": "Siku 1",
+      "tl.1t": "Kuidhinisha na domain",
+      "tl.1p": "Mnaidhinisha pendekezo, tunasajili domain yenu na kuandaa hosting.",
+      "tl.d2": "Siku 2–4",
+      "tl.2t": "Maudhui yenu",
+      "tl.2p": "Tunaweka picha zenu halisi za miradi, bidhaa, viungo vya mitandao ya kijamii na mabadiliko yoyote ya maandishi.",
+      "tl.d3": "Siku 5–6",
+      "tl.3t": "SEO na ukaguzi wa mwisho",
+      "tl.3p": "Kuweka Google, ukaguzi wa kasi na simu, na ukaguzi wenu wa mwisho kwa lugha zote mbili.",
+      "tl.d4": "Siku 7",
+      "tl.4t": "Uzinduzi",
+      "tl.4p": "Tovuti yenu inaingia hewani kwenye domain yenu ikiwa na usalama wa SSL, tayari kwa wateja.",
+      "tl.total": "Jumla ya muda wa kukabidhi:",
+      "tl.totalv": "siku 7 za kazi",
+
+      "pr.label": "05 — Uwekezaji",
+      "pr.title": "Panga <em>uwekezaji wako.</em>",
+      "pr.sub": "Tovuti inalipwa mara moja tu. Hosting inaiweka hewani na salama — chagua kulipa kila mwaka au kila mwezi. Domain inahuishwa mara moja kwa mwaka.",
+      "pr.web": "Tovuti",
+      "pr.webt": "Usanifu na utengenezaji",
+      "pr.webs": "Malipo ya mara moja · kila kitu katika pendekezo hili",
+      "pr.host": "Mpango wa hosting",
+      "pl.a": "Kila mwaka",
+      "pl.ay": " /mwaka",
+      "pl.an": "Sawa na $12.08 kwa mwezi",
+      "pl.ab": "Okoa $155 kwa mwaka",
+      "pl.m": "Kila mwezi",
+      "pl.mm": " /mwezi",
+      "pl.mn": "$300 kwa mwaka ukilipa mwezi kwa mwezi",
+      "pl.mb": "Hakuna malipo ya mwaka",
+      "pr.dom": "Domain",
+      "pr.domt": "Usajili wa domain",
+      "pr.doms": "mf. solarengineeringug.com · imesajiliwa kwa jina la kampuni yenu",
+      "inc.l1": "Hosting: tovuti yenu hewani saa 24/7",
+      "inc.l2": "Cheti cha usalama cha SSL (kufuli ya https)",
+      "inc.l3": "Kuunganisha domain na kuandaa kitaalamu",
+      "inc.l4": "Matengenezo ya kiufundi, masasisho ya usalama na nakala rudufu",
+      "inc.l5": "Umiliki kamili wa tovuti, maudhui na domain",
+      "ni.t": "Haijajumuishwa",
+      "ni.1": "Vipengele au kurasa mpya nje ya pendekezo hili: bei yake hutolewa kando",
+      "ni.2": "Bajeti za matangazo ya kulipia (Google, Facebook, Instagram, TikTok)",
+      "ni.3": "Upigaji picha au video wa kitaalamu",
+      "sm.t": "Muhtasari",
+      "sm.once": "Malipo ya mara moja",
+      "sm.y1": "Mwaka wa kwanza",
+      "sm.today": "Jumla ya kulipa leo",
+      "sm.renew": "Malipo ya kuhuisha",
+      "ac.name": "Jina la anayeidhinisha*",
+      "ac.check": "Nimepitia pendekezo hili na ninalikubali pamoja na mpango wa hosting niliouchagua.",
+      "ac.btn": "Kubali pendekezo kwa WhatsApp",
+      "ac.note": "Kukubali kwako kunatumwa kwa DGP Global Group ili kuandaa ankara.",
+
+      "fq.label": "06 — Majibu ya maswali yenu",
+      "fq.title": "Gharama wazi. <em>Bila mshangao.</em>",
+      "q1": "Gharama ya jumla ni kiasi gani?",
+      "a1": "Kwa mpango wa hosting wa kila mwaka mnalipa <strong>$625 leo</strong> ($455 tovuti + $145 hosting + $25 domain). Kwa mpango wa kila mwezi mnalipa <strong>$505 leo</strong> ($455 + $25 mwezi wa kwanza + $25 domain).",
+      "q2": "Gharama za kuhuisha kila mwaka ni zipi?",
+      "a2": "Mpango wa mwaka: <strong>$170 kwa mwaka</strong> kuanzia mwaka wa pili ($145 hosting + $25 domain). Mpango wa mwezi: <strong>$25 kwa mwezi</strong> kwa hosting + <strong>$25 kwa mwaka</strong> kwa domain. Ada ya tovuti ya $455 inalipwa mara moja tu.",
+      "q3": "Je, usalama wa SSL umejumuishwa?",
+      "a3": "Ndiyo. Cheti cha SSL (kufuli ya https) kimejumuishwa katika mipango yote miwili ya hosting bila gharama ya ziada na kinahuishwa chenyewe.",
+      "q4": "Nani anamiliki tovuti na domain?",
+      "a4": "Ninyi. Domain inasajiliwa kwa jina la Solar Engineering UG, na tovuti, muundo wake na maudhui yake ni mali ya kampuni yenu 100% baada ya malipo.",
+      "q5": "Je, kuna ada za matengenezo baadaye?",
+      "a5": "Hakuna ada tofauti ya matengenezo. Matengenezo ya kiufundi, masasisho ya usalama na nakala rudufu yamejumuishwa katika mpango wa hosting. Kurasa au vipengele vipya hupewa bei kando, endapo tu mtaviomba.",
+      "q6": "Itachukua muda gani kukamilika?",
+      "a6": "<strong>Siku 7 za kazi</strong> baada ya kuidhinisha na kulipa. Muundo tayari umejengwa, kwa hivyo tunahitaji tu picha zenu halisi, viungo vya mitandao ya kijamii na maandishi ya mwisho.",
+      "q7": "Je, wateja watatupata kwenye Google?",
+      "a7": "Tovuti imeboreshwa kwa utafutaji kama “solar installation Kampala” au “lithium batteries Uganda”: vichwa vya kurasa, maelezo, taarifa za biashara kwa Google, sitemap na kuweka Google Search Console. Nafasi kwenye Google huimarika kadiri muda unavyokwenda kwa maudhui halisi na maoni ya wateja.",
+
+      "t1.t": "Kukabidhi",
+      "t1.p": "Tovuti inaingia hewani kwenye domain yenu ndani ya siku 7 za kazi baada ya pendekezo kuidhinishwa na malipo kupokelewa.",
+      "t2.t": "Ankara",
+      "t2.p": "Baada ya kukubali, DGP Global Group inawatumia ankara yenye mpango wa hosting mliouchagua.",
+      "t3.t": "Muda wa uhalali",
+      "t3.p": "Limetolewa tarehe 28 Oktoba 2026. Linatumika kwa siku 15.",
+      "ft.big": "Tuwezeshe <em>sura inayofuata</em> ya Solar Engineering UG.",
+      "ft.by": "Pendekezo limeandaliwa na",
+      "mb.go": "Kubali pendekezo",
+    };
+    const UI = {
+      en: {
+        title: "Website Proposal | Solar Engineering UG",
+        plans: {
+          annual:  { name: "Annual plan",  label: "Hosting · Annual plan",  sub: "First year",  then: "From year 2: <strong>$170 per year</strong> (hosting $145 + domain $25)." },
+          monthly: { name: "Monthly plan", label: "Hosting · Monthly plan", sub: "First month", then: "Then: <strong>$25 per month</strong> for hosting + <strong>$25 per year</strong> for the domain." },
+        },
+        errName: "Please write the name of the person approving.",
+        errOk: "Tick the box to confirm your acceptance.",
+        ok: "Thank you! WhatsApp is opening with your acceptance ready to send.",
+        notes: {
+          inicio: "Before: a gradient banner with cartoon-style illustrations below. After: a full-screen solar photo, animated headline that rotates between homes, businesses, farms, schools and industry, and direct buttons to WhatsApp.",
+          servicios: "The nine services become an interactive list: on desktop each service shows its photo as you move the mouse; on mobile every service has its own image and a quote button.",
+          proyectos: "Instead of an empty gallery (“No projects in this category yet”), a pinned horizontal gallery that moves as you scroll. We load your real project photos before launch.",
+          contacto: "A cleaner contact section: details at a glance and a quote form that arrives on your WhatsApp or email with all the customer's details ready.",
+          movil: "Mobile designed from the start: bold first screen, full-screen menu, language switch and the WhatsApp button always at hand.",
+        },
+        alt: { before: "Reference website", after: "New website" },
+      },
+      sw: {
+        title: "Pendekezo la Tovuti | Solar Engineering UG",
+        plans: {
+          annual:  { name: "Mpango wa kila mwaka", label: "Hosting · Mpango wa kila mwaka", sub: "Mwaka wa kwanza", then: "Kuanzia mwaka wa pili: <strong>$170 kwa mwaka</strong> (hosting $145 + domain $25)." },
+          monthly: { name: "Mpango wa kila mwezi", label: "Hosting · Mpango wa kila mwezi", sub: "Mwezi wa kwanza", then: "Kisha: <strong>$25 kwa mwezi</strong> kwa hosting + <strong>$25 kwa mwaka</strong> kwa domain." },
+        },
+        errName: "Tafadhali andika jina la anayeidhinisha.",
+        errOk: "Weka alama kwenye kisanduku kuthibitisha kukubali kwako.",
+        ok: "Asante! WhatsApp inafunguka na kukubali kwako kuko tayari kutumwa.",
+        notes: {
+          inicio: "Kabla: bango la rangi na michoro ya katuni chini yake. Baada: picha kamili ya sola, kichwa kinachobadilika kati ya nyumba, biashara, shamba, shule na kiwanda, na vitufe vya moja kwa moja vya WhatsApp.",
+          servicios: "Huduma tisa zinakuwa orodha shirikishi: kwenye kompyuta kila huduma inaonyesha picha yake unapopitisha kipanya; kwenye simu kila huduma ina picha yake na kitufe cha kuomba bei.",
+          proyectos: "Badala ya ghala tupu (“No projects in this category yet”), ghala la mlalo linalosogea unaposhuka. Tutaweka picha zenu halisi za miradi kabla ya kuzindua.",
+          contacto: "Sehemu ya mawasiliano iliyo safi zaidi: taarifa kwa mtazamo mmoja na fomu ya makadirio inayofika kwenye WhatsApp au barua pepe yenu ikiwa na taarifa zote za mteja.",
+          movil: "Simu imefikiriwa tangu mwanzo: skrini ya kwanza yenye nguvu, menyu ya skrini nzima, kubadilisha lugha na kitufe cha WhatsApp karibu kila wakati.",
+        },
+        alt: { before: "Tovuti ya mfano", after: "Tovuti mpya" },
+      },
+    };
+
+    const i18nEls = $$("[data-i18n]");
+    const EN = new Map(i18nEls.map((el) => [el, el.innerHTML]));
+    let lang = "en";
+    let currentTab = "inicio";
+    const t = () => UI[lang];
+
+    const applyLang = (l) => {
+      lang = l === "sw" ? "sw" : "en";
+      i18nEls.forEach((el) => { const v = lang === "sw" ? SW[el.dataset.i18n] : EN.get(el); if (v != null) el.innerHTML = v; });
+      document.documentElement.lang = lang;
+      document.title = t().title;
+      $$(".lang__btn").forEach((b) => { const on = b.dataset.lang === lang; b.classList.toggle("is-active", on); b.setAttribute("aria-pressed", on); });
+      $(".lang").dataset.active = lang;
+      try { localStorage.setItem("seug-lang", lang); } catch (e) {}
+      $("[data-note]").textContent = t().notes[currentTab];
+      update(true);
+    };
+
+    /* top bar */
+    const bar = $(".bar");
+    const mbar = $(".mbar");
+    const price = $("#investment");
+    const onScroll = () => {
+      bar.classList.toggle("is-solid", scrollY > 40);
+      const r = price.getBoundingClientRect();
+      mbar.classList.toggle("is-visible", scrollY > innerHeight * 0.6 && (r.top > innerHeight || r.bottom < 0));
+    };
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    /* reveal */
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+    }), { threshold: 0.15, rootMargin: "0px 0px -5% 0px" });
+    $$(".rv").forEach((el) => io.observe(el));
+
+    /* before / after */
+    const stage = $(".stage");
+    const ba = $(".ba");
+    const range = $("input", ba);
+    const hintEl = $("[data-hint]");
+    const modeBtns = $$(".mode__btn");
+    let mode = "slide";
+    range.addEventListener("input", () => ba.style.setProperty("--pos", `${range.value}%`));
+    let wiggled = false;
+    const wiggle = () => {
+      if (reduced || wiggled) return;
+      wiggled = true;
+      let t0 = null;
+      const step = (now) => {
+        t0 ??= now;
+        const p = Math.min(1, (now - t0) / 1800);
+        const v = 50 + Math.sin(p * Math.PI * 2) * 20 * (1 - p);
+        ba.style.setProperty("--pos", `${v}%`); range.value = v;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      setTimeout(() => requestAnimationFrame(step), 300);
+    };
+    const setMode = () => {
+      const isMovil = currentTab === "movil";
+      stage.dataset.mode = isMovil ? "movil" : mode;
+      modeBtns.forEach((b) => { b.classList.toggle("is-active", !isMovil && b.dataset.mode === mode); b.disabled = isMovil; });
+      hintEl.hidden = isMovil || mode !== "slide";
+    };
+    modeBtns.forEach((b) => b.addEventListener("click", () => { mode = b.dataset.mode; setMode(); if (mode === "slide") wiggle(); }));
+    $$(".tab").forEach((tb) => tb.addEventListener("click", () => {
+      const key = tb.dataset.tab;
+      if (key === currentTab) return;
+      currentTab = key;
+      $$(".tab").forEach((x) => { x.classList.toggle("is-active", x === tb); x.setAttribute("aria-selected", x === tb); });
+      $("[data-note]").textContent = t().notes[key];
+      if (key !== "movil") {
+        const label = tb.textContent.trim();
+        stage.classList.add("is-swapping");
+        setTimeout(() => {
+          const imgs = [];
+          $$("img[data-before]", stage).forEach((img) => { img.src = `img/ba/${key}-antes.webp`; img.alt = `${t().alt.before}: ${label}`; imgs.push(img); });
+          $$("img[data-after]", stage).forEach((img) => { img.src = `img/ba/${key}-despues.webp`; img.alt = `${t().alt.after}: ${label}`; imgs.push(img); });
+          Promise.all(imgs.map((i) => (i.decode ? i.decode().catch(() => {}) : null))).then(() => stage.classList.remove("is-swapping"));
+        }, 200);
+      }
+      setMode();
+    }));
+    const seenIO = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      seenIO.disconnect();
+      if (stage.dataset.mode === "slide") wiggle();
+    }, { threshold: 0.6 });
+    seenIO.observe(stage);
+    addEventListener("load", () => {
+      ["servicios", "proyectos", "contacto"].forEach((k) => ["antes", "despues"].forEach((v) => { const i = new Image(); i.src = `img/ba/${k}-${v}.webp`; }));
+    });
+
+    /* timeline line */
+    const tl = $(".tl");
+    new IntersectionObserver(([e], o) => { if (e.isIntersecting) { tl.classList.add("is-in"); o.disconnect(); } }, { threshold: 0.4 }).observe(tl);
+
+    /* pricing */
+    const PLANS = { annual: 145, monthly: 25 };
+    const form = $("#accept");
+    const totals = $$("[data-total]");
+    let shown = WEBSITE + PLANS.annual + DOMAIN;
+    const totalNow = () => WEBSITE + PLANS[form.plan.value] + DOMAIN;
+    const animateTo = (target) => {
+      const from = shown, t0 = performance.now(), dur = reduced ? 1 : 750;
+      const tick = (now) => {
+        const p = Math.min(1, (now - t0) / dur);
+        const v = Math.round(from + (target - from) * (1 - Math.pow(1 - p, 3)));
+        totals.forEach((el) => (el.textContent = v));
+        if (p < 1) requestAnimationFrame(tick); else shown = target;
+      };
+      requestAnimationFrame(tick);
+    };
+    function update(silent) {
+      const key = form.plan.value;
+      const plan = t().plans[key];
+      $("[data-plan-label]").textContent = plan.label;
+      $("[data-plan-sub]").textContent = plan.sub;
+      $("[data-plan-price]").textContent = `$${PLANS[key]}`;
+      $("[data-then]").innerHTML = plan.then;
+      if (silent) { shown = totalNow(); totals.forEach((el) => (el.textContent = shown)); }
+      else animateTo(totalNow());
+    }
+    $$('input[name="plan"]').forEach((r) => r.addEventListener("change", () => update()));
+
+    /* accept → WhatsApp (sent to DGP in English) */
+    const ok = $(".accept__ok");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const nameField = form.name.closest(".field");
+      nameField.classList.toggle("has-error", name.length < 2);
+      if (name.length < 2) { form.name.focus(); ok.textContent = t().errName; return; }
+      if (!form.ok.checked) { form.ok.focus(); ok.textContent = t().errOk; return; }
+      const key = form.plan.value;
+      const annual = key === "annual";
+      const text = [
+        "Hello DGP Global Group, I accept the website proposal for Solar Engineering UG.",
+        "",
+        `• Website design & development: $${WEBSITE} (one-time)`,
+        `• Hosting: ${annual ? "Annual plan — $145/year" : "Monthly plan — $25/month"}`,
+        `• Domain registration: $${DOMAIN}/year`,
+        `• Total to pay today: $${totalNow()} USD`,
+        annual ? "• Renewals: $170 per year (hosting + domain)" : "• Renewals: $25/month hosting + $25/year domain",
+        "",
+        `Approved by: ${name}`,
+        `Proposal language: ${lang === "sw" ? "Kiswahili" : "English"}`,
+        "",
+        "Please send the invoice. Thank you!",
+      ].join("\n");
+      window.open(`https://wa.me/${DGP_WHATSAPP}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+      ok.textContent = t().ok;
+    });
+    form.name.addEventListener("input", () => { form.name.closest(".field").classList.remove("has-error"); ok.textContent = ""; });
+
+    /* language switch with curtain */
+    const curtain = $(".curtain");
+    $$(".lang__btn").forEach((b) => b.addEventListener("click", () => {
+      const l = b.dataset.lang;
+      if (l === lang) return;
+      if (reduced) { applyLang(l); return; }
+      curtain.classList.remove("is-off");
+      curtain.classList.add("is-on");
+      setTimeout(() => {
+        applyLang(l);
+        curtain.classList.add("is-off");
+        requestAnimationFrame(() => curtain.classList.remove("is-on"));
+      }, 560);
+    }));
+
+    let initial = "en";
+    try { initial = new URLSearchParams(location.search).get("lang") || localStorage.getItem("seug-lang") || "en"; } catch (e) {}
+    applyLang(initial);
+  })();
+  </script>
+</body>
+</html>

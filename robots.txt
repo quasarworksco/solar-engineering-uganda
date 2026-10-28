@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /propuesta/
+
+Sitemap: https://solarengineeringug.dgp-link.com/sitemap.xml
