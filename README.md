@@ -15,5 +15,5 @@ Static site with no build step: open `index.html` or publish to any static host 
 Respects `prefers-reduced-motion` and works on mobile.
 
 ## Before launch
-- Replace the `#` social media links in the contact section (`index.html`, search for "Replace") with the company's real profiles.
+- Add the company's social media URLs in the contact section (`index.html`, `.socials`): each icon stays hidden while its link is `#`.
 - Swap the stock photos in the Projects gallery for real project photos.
