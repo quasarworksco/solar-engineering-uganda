@@ -212,10 +212,31 @@
 
     /* ---------- Preloader + hero intro ---------- */
     const pre = $(".preloader");
-    const num = $(".preloader__num");
     body.classList.add("is-loading");
     lenis?.stop();
-    const counter = { v: 0 };
+
+    // sunrise art: build the sun rays and the panel cells (perspective grid like the logo)
+    const NS = "http://www.w3.org/2000/svg";
+    const svgEl = (tag, attrs) => { const e = document.createElementNS(NS, tag); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); return e; };
+    const rays = $(".pl-rays");
+    for (let i = 0; i < 12; i++) {
+      const a = (i / 12) * Math.PI * 2;
+      rays.appendChild(svgEl("line", { x1: 160 + Math.cos(a) * 36, y1: 104 + Math.sin(a) * 36, x2: 160 + Math.cos(a) * 50, y2: 104 + Math.sin(a) * 50 }));
+    }
+    const panel = $(".pl-panel");
+    const [TL, TR, BR, BL] = [[104, 120], [216, 120], [250, 186], [70, 186]];
+    const at = (u, v) => [0, 1].map((k) => (1 - v) * ((1 - u) * TL[k] + u * TR[k]) + v * ((1 - u) * BL[k] + u * BR[k]));
+    const COLS = 7, ROWS = 3, G = 0.018;
+    const cells = [];
+    for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+      const u0 = c / COLS + G, u1 = (c + 1) / COLS - G, v0 = r / ROWS + G * 2, v1 = (r + 1) / ROWS - G * 2;
+      const pts = [at(u0, v0), at(u1, v0), at(u1, v1), at(u0, v1)].map((p) => p.map((n) => n.toFixed(1)).join(",")).join(" ");
+      const poly = svgEl("polygon", { points: pts });
+      poly.dataset.d = c + r; // diagonal order for the light wave
+      panel.appendChild(poly);
+      cells.push(poly);
+    }
+    cells.sort((a, b) => a.dataset.d - b.dataset.d);
 
     gsap.set(".hero__media img", { scale: 1.3 });
     gsap.set(".hero__title .line__in", { yPercent: 115 });
@@ -225,25 +246,32 @@
 
     let seen = false;
     try { seen = !!sessionStorage.getItem("seug-intro"); sessionStorage.setItem("seug-intro", "1"); } catch (e) {}
-    const t = seen ? 0 : 1.15;
+    const t = seen ? 0 : 2.05;
 
-    gsap.set(".preloader__rays line", { scale: 0, transformOrigin: "60px 60px" });
-    gsap.set(".preloader__core", { scale: 0 });
-    gsap.set(".preloader__brand, .preloader__tag", { y: 20, autoAlpha: 0 });
+    gsap.set(".pl-horizon", { strokeDasharray: 300, strokeDashoffset: 300 });
+    gsap.set(".pl-sun", { y: 74 });
+    gsap.set(".pl-rays", { scale: 0.6, rotate: -30, transformOrigin: "160px 104px" });
+    gsap.set(cells, { autoAlpha: 0, y: 8 });
+    gsap.set(".preloader__brand span, .preloader__tag", { yPercent: 110, autoAlpha: 0 });
 
     const intro = gsap.timeline({ paused: true });
     if (seen) {
       intro.to(pre, { autoAlpha: 0, duration: 0.4, ease: "power2.out" }, 0);
     } else {
       intro
-        .to(".preloader__core", { scale: 1, duration: 0.6, ease: "back.out(2)" }, 0)
-        .to(".preloader__rays line", { scale: 1, duration: 0.5, stagger: 0.04, ease: "back.out(2)" }, 0.1)
-        .to(".preloader__rays", { rotate: 90, duration: 1.2, ease: "power2.inOut" }, 0.1)
-        .to(".preloader__brand, .preloader__tag", { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.08, ease: expo }, 0.15)
-        .to(counter, { v: 100, duration: 0.95, ease: "power2.inOut", onUpdate: () => (num.textContent = Math.round(counter.v)) }, 0)
-        .to(".preloader__line i", { scaleX: 1, duration: 0.95, ease: "power2.inOut" }, 0)
-        .to(".preloader__sun, .preloader__brand, .preloader__tag, .preloader__foot", { autoAlpha: 0, y: -30, duration: 0.3, stagger: 0.03, ease: "power2.in" }, 0.95)
-        .to(pre, { clipPath: "inset(0 0 100% 0)", duration: 0.9, ease: "expo.inOut" }, 1.05);
+        // the horizon draws, the sun rises behind it
+        .to(".pl-horizon", { strokeDashoffset: 0, duration: 0.7, ease: "power3.inOut" }, 0)
+        .to(".pl-sun", { y: 0, duration: 1.3, ease: "power3.out" }, 0.25)
+        .to(".pl-rays", { scale: 1, rotate: 30, duration: 1.6, ease: "power2.out" }, 0.3)
+        // the panel appears and charges with a wave of sunlight
+        .to(cells, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.025, ease: "power3.out" }, 0.35)
+        .to(cells, { keyframes: [{ fill: "#ffc61a", duration: 0.18 }, { fill: "#2fa53e", duration: 0.4 }], stagger: 0.035, ease: "power1.inOut" }, 0.85)
+        .to(".preloader__brand span", { yPercent: 0, autoAlpha: 1, duration: 0.9, stagger: 0.07, ease: expo }, 0.45)
+        .to(".preloader__tag", { yPercent: 0, autoAlpha: 1, duration: 0.9, ease: expo }, 0.7)
+        // everything fades and the screen opens along the horizon
+        .to(".preloader__stage", { autoAlpha: 0, scale: 0.94, duration: 0.45, ease: "power2.in" }, 1.6)
+        .to(".preloader__half--top", { yPercent: -100, duration: 1, ease: "expo.inOut" }, 1.75)
+        .to(".preloader__half--bot", { yPercent: 100, duration: 1, ease: "expo.inOut" }, 1.75);
     }
     intro
       .to(".hero__media img", { scale: 1, duration: 2.4, ease: expo }, t + 0.05)
@@ -257,7 +285,7 @@
         lenis?.start();
         startRotator();
         ScrollTrigger.refresh();
-      }, t + 0.5);
+      }, t + 0.75);
 
     let started = false;
     const play = () => { if (!started) { started = true; intro.play(); } };

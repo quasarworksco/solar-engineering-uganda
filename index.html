@@ -90,22 +90,26 @@
 
   <!-- ============ PRELOADER ============ -->
   <div class="preloader" aria-hidden="true">
-    <div class="preloader__sun">
-      <svg viewBox="0 0 120 120">
-        <circle class="preloader__core" cx="60" cy="60" r="20" />
-        <g class="preloader__rays">
-          <line x1="60" y1="8" x2="60" y2="26" /><line x1="60" y1="94" x2="60" y2="112" />
-          <line x1="8" y1="60" x2="26" y2="60" /><line x1="94" y1="60" x2="112" y2="60" />
-          <line x1="23" y1="23" x2="36" y2="36" /><line x1="84" y1="84" x2="97" y2="97" />
-          <line x1="97" y1="23" x2="84" y2="36" /><line x1="36" y1="84" x2="23" y2="97" />
+    <div class="preloader__half preloader__half--top"></div>
+    <div class="preloader__half preloader__half--bot"></div>
+    <div class="preloader__stage">
+      <svg class="preloader__art" viewBox="0 0 320 200">
+        <defs>
+          <clipPath id="pl-sky"><rect x="0" y="0" width="320" height="104" /></clipPath>
+          <radialGradient id="pl-glow"><stop offset="0" stop-color="#ffc61a" stop-opacity=".5" /><stop offset="1" stop-color="#ffc61a" stop-opacity="0" /></radialGradient>
+        </defs>
+        <g clip-path="url(#pl-sky)">
+          <g class="pl-sun">
+            <circle cx="160" cy="104" r="78" fill="url(#pl-glow)" />
+            <g class="pl-rays"></g>
+            <circle cx="160" cy="104" r="26" fill="#ffc61a" />
+          </g>
         </g>
+        <line class="pl-horizon" x1="12" y1="104" x2="308" y2="104" />
+        <g class="pl-panel"></g>
       </svg>
-    </div>
-    <p class="preloader__brand">Solar Engineering <b>UG</b></p>
-    <p class="preloader__tag" data-i18n="pre.tag">Powering your tomorrow</p>
-    <div class="preloader__foot">
-      <span class="preloader__num">0</span>
-      <span class="preloader__line"><i></i></span>
+      <p class="preloader__brand"><span>Solar</span> <span>Engineering</span> <span><b>UG</b></span></p>
+      <p class="preloader__tag" data-i18n="pre.tag">Powering your tomorrow</p>
     </div>
   </div>
 
