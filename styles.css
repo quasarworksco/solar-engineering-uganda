@@ -331,7 +331,6 @@ section { position: relative; padding: clamp(96px, 12vw, 180px) 0; }
 .socials a { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); transition: background .4s, color .4s, border-color .4s, transform .5s var(--ease); }
 .socials a:hover { background: var(--ink); color: var(--sun); border-color: var(--ink); transform: translateY(-4px); }
 .socials svg { width: 20px; height: 20px; fill: currentColor; }
-.socials a[href="#"] { display: none; }
 
 .form { padding: clamp(28px, 3.6vw, 48px); border-radius: calc(var(--radius) + 6px); background: var(--ink); color: var(--white); box-shadow: 0 50px 100px -50px rgba(10, 13, 11, .6); }
 .form__title { margin: 0 0 18px; font-size: 28px; letter-spacing: -.035em; }

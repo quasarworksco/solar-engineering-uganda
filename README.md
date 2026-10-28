@@ -15,5 +15,5 @@ Static site with no build step: open `index.html` or publish to any static host 
 Respects `prefers-reduced-motion` and works on mobile.
 
 ## Before launch
-- Add the company's social media URLs in the contact section (`index.html`, `.socials`): each icon stays hidden while its link is `#`.
+- Add the company's Facebook, Instagram and TikTok URLs in the contact section (`index.html`, `.socials`); until then those icons show as examples and do nothing when clicked.
 - Swap the stock photos in the Projects gallery for real project photos.

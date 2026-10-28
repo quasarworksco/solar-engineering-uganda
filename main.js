@@ -73,6 +73,9 @@
     wasOpen ? setTimeout(go, 450) : go();
   }));
 
+  /* ---------- Social icons without a URL yet do nothing when clicked ---------- */
+  $$('.socials a[href="#"]').forEach((a) => { a.removeAttribute("target"); a.addEventListener("click", (e) => e.preventDefault()); });
+
   /* ---------- Service rows prefill the form ---------- */
   $$(".srow").forEach((row) => row.addEventListener("click", (e) => {
     const go = $(".srow__go", row);
